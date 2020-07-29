@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+</head>
+
+<body>
+    <script>
+        // function foo(str) {
+        //     // "use strict"
+        //     eval(str)
+        //     console.log(a) // ReferenceError: a is not defined
+        // }
+        // foo("var a = 2")
+
+        // setTimeout('console.log(233)')
+
+        // function foo(obj) {
+        //     with (obj) {
+        //         var aaa = 123
+        //         a = 2
+        //     }
+        // }
+
+        // var o1 = {
+        //     a: 3
+        // }
+
+        // var o2 = {
+        //     b: 3
+        // }
+        // foo(o1)
+        // console.log(o1.a) // 2
+        // foo(o2)
+        // console.log(o2.a) // undefined
+        // console.log(a) // 2——不好，a 被泄漏到全局作用域上了！
+        // console.log(o2.aaa)
+        // console.log(aaa)
+
+        // function test() {
+        //     a = 233
+        // }
+
+        // test()
+
+        // console.log(window.a)
+
+        var foo = true
+        if (foo) {
+            var bar = foo * 2
+            // bar = something(bar)
+            console.log(bar)
+        }
+        console.log(bar)
+
+        for (var i = 0; i < 10; i++) {
+            console.log(i, 'in')
+        }
+
+        console.log(i, 'out')
+
+    </script>
+</body>
+
+</html>
