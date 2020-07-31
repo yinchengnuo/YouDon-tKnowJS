@@ -48,19 +48,36 @@
 
         // console.log(window.a)
 
-        var foo = true
-        if (foo) {
-            var bar = foo * 2
-            // bar = something(bar)
-            console.log(bar)
-        }
-        console.log(bar)
+        // var foo = true
+        // if (foo) {
+        //     var bar = foo * 2
+        //     // bar = something(bar)
+        //     console.log(bar)
+        // }
+        // console.log(bar)
 
-        for (var i = 0; i < 10; i++) {
-            console.log(i, 'in')
+        // for (var i = 0; i < 10; i++) {
+        //     console.log(i, 'in')
+        // }
+
+        // console.log(i, 'out')
+
+        var global = 0
+
+        function out() {
+            var outData = 1
+            setInterval(() => outData ++, 233)
+            return function() {
+                console.log(outData, global)
+            } 
         }
 
-        console.log(i, 'out')
+        var inner = out()
+
+        setInterval(() => {
+            global ++
+            inner()
+        }, 1000)
 
     </script>
 </body>
