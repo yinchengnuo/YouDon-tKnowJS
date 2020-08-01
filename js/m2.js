@@ -1,8 +1,5 @@
 define(function () {
-    function m2() {
+    return function m1() {
         console.log('m2')
     }
-    return {
-        m2: m2
-    };
 });
