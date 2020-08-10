@@ -51,6 +51,37 @@
         foo.awesome(); // LET ME INTRODUCE: HIPPO
     </script> -->
     <script src="js/require.js" defer async="true" data-main="js/main"></script>
+
+    <script>
+        const obj = {
+            // a: 1,
+            b: 2
+        }
+        const proto = {
+            a: 11,
+            b: 22
+        }
+        Object.setPrototypeOf(obj, proto)
+
+        const proxy = new Proxy(obj, {
+            get(target, name) {
+                console.log(target[name])
+                if (target[name]) {
+                    return target[name]
+                }
+            }
+        })
+
+        console.log(proxy.a)
+
+        Object.setPrototypeOf(proxy, {
+            a: 111,
+            b: 222
+        })
+
+        console.log(proxy)
+        console.log(proxy.a)
+    </script>
 </body>
 
 </html>
